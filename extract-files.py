@@ -52,18 +52,10 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
     (
         'vendor/bin/hw/vendor.qti.camera.provider-service_64',
-        'vendor/bin/poweropt-service',
         'vendor/lib64/camx.provider-impl.so',
         'vendor/lib64/hw/libaudioeffecthal.qti.so',
-        'vendor/lib64/liblearningmodule.so',
-        'vendor/lib64/libaodoptfeature.so',
-        'vendor/lib64/libapengine.so',
-        'vendor/lib64/libcamerapoweroptfeature.so',
         'vendor/lib64/libdpps.so',
-        'vendor/lib64/libpowercore.so',
-        'vendor/lib64/libpsmoptfeature.so',
         'vendor/lib64/libsnapdragoncolor-manager.so',
-        'vendor/lib64/libstandbyfeature.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     (
