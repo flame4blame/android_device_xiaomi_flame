@@ -4,6 +4,9 @@ type vendor_sysfs_qcom_battery, fs_type, sysfs_type;
 # Display
 type vendor_sysfs_displayfeature, fs_type, sysfs_type;
 
+# Dt2w
+type proc_touchpad, fs_type, proc_type;
+
 # Fingerprint
 type vendor_sysfs_fpc_attr, fs_type, sysfs_type;
 
