@@ -85,13 +85,11 @@ blob_fixups: blob_fixups_user_type = {
         .add_line_if_missing('sched_get_priority_min: 1'),
     'vendor/etc/seccomp_policy/qesdksec.policy': blob_fixup()
         .add_line_if_missing('lseek: 1'),
-    'vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so': blob_fixup()
-        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
     'vendor/lib64/libaudioserviceexampleimpl.so': blob_fixup()
         .add_needed('libaudioutils_shim.so')
-        .replace_needed('android.hardware.bluetooth.audio-impl.so', 'android.hardware.bluetooth.audio-impl_prebuilt.so')
-        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so')
-        .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
+        .add_needed('libbluetooth_audio_session_aidl_shim.so')
+        .binary_regex_replace(b'BluetoothAudioSession14GetAudioConfigEv', b'BluetoothAudioSession14GetAudioConfV4Ev')
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
     'vendor/lib64/libsensorndkbridge.so': blob_fixup()
         .replace_needed('android.hardware.sensors-V2-ndk.so', 'android.hardware.sensors-V3-ndk.so'),
     'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
