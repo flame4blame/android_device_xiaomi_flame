@@ -39,6 +39,7 @@ vendor/lib64/libadm.so
 vendor/lib64/libar-pal.so;DISABLE_DEPS
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioplatformconverter.qti.so;DISABLE_DEPS
+vendor/lib64/libaudioserviceexampleimpl.so;DISABLE_DEPS
 vendor/lib64/libcapiv2svacnnvendor.so
 vendor/lib64/libcapiv2svarnnvendor.so
 vendor/lib64/libcapiv2uvvendor.so
@@ -59,10 +60,6 @@ vendor/etc/usecaseKvManager.xml
 
 # Audio firmware
 vendor/firmware/sipa.bin
-
-# Audio - old AIDL dependencies
-vendor/lib64/libaudio_aidl_conversion_common_ndk.so:vendor/lib64/libaudio_aidl_conversion_common_ndk_prebuilt.so;DISABLE_DEPS;FIX_SONAME
-vendor/lib64/libaudioserviceexampleimpl.so;DISABLE_DEPS
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti
