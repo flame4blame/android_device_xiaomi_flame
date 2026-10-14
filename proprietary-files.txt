@@ -55,7 +55,6 @@ vendor/lib64/vendor.qti.hardware.ListenSoundModelAidl-V1-ndk.so
 # Audio configs
 vendor/etc/audio/sku_ravelin/mixer_paths_ravelin_qrd.xml
 vendor/etc/audio/sku_ravelin/resourcemanager_ravelin_qrd.xml
-vendor/etc/bluetooth_qti_hearing_aid_audio_policy_configuration.xml
 vendor/etc/usecaseKvManager.xml
 
 # Audio firmware
