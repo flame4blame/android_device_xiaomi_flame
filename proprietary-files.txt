@@ -36,11 +36,7 @@ vendor/lib64/hw/libaudiocorehal.default.so;DISABLE_DEPS;REQUIRED=manifest_audioc
 vendor/lib64/hw/libaudiocorehal.qti.so;DISABLE_DEPS
 vendor/lib64/hw/libaudioeffecthal.qti.so;DISABLE_DEPS;REQUIRED=audioeffectservice_qti.xml
 vendor/lib64/libadm.so
-vendor/lib64/libar-acdb.so
-vendor/lib64/libar-gpr.so
-vendor/lib64/libar-gsl.so
-vendor/lib64/libar-pal.so
-vendor/lib64/libats.so
+vendor/lib64/libar-pal.so;DISABLE_DEPS
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioplatformconverter.qti.so;DISABLE_DEPS
 vendor/lib64/libcapiv2svacnnvendor.so
@@ -50,11 +46,8 @@ vendor/lib64/libeai_fixed.so
 vendor/lib64/libeai_float.so
 vendor/lib64/liblistensoundmodel2vendor.so
 vendor/lib64/liblistensoundmodelaidl.so
-vendor/lib64/liblx-ar_util.so
-vendor/lib64/liblx-osal.so
 vendor/lib64/libmcs.so
-vendor/lib64/libmikaraoke.so
-vendor/lib64/libpal_net_if.so
+vendor/lib64/libmisight.so
 vendor/lib64/libqtigefar.so;DISABLE_DEPS
 vendor/lib64/vendor.qti.hardware.ListenSoundModelAidl-V1-ndk.so
 
@@ -66,13 +59,6 @@ vendor/etc/usecaseKvManager.xml
 
 # Audio firmware
 vendor/firmware/sipa.bin
-
-# Audio graph manager
-vendor/lib64/libagm.so
-vendor/lib64/libagmclient.so
-vendor/lib64/libagmipcservice.so
-vendor/lib64/libagmmixer.so
-vendor/lib64/libmisight.so
 
 # Audio - old AIDL dependencies
 vendor/lib64/android.hardware.bluetooth.audio-impl.so:vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so;FIX_SONAME
@@ -1071,6 +1057,7 @@ vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_common.so
 vendor/lib64/liblowi_wifihal.so
 vendor/lib64/libmapdata_api.so
+vendor/lib64/libpal_net_if.so
 vendor/lib64/libslimclient.so
 vendor/lib64/libsynergy_loc_api.so
 vendor/lib64/libsys_info_cache.so
