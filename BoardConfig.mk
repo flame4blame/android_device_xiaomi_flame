@@ -5,8 +5,6 @@
 
 DEVICE_PATH := device/xiaomi/flame
 
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 # A/B
 AB_OTA_PARTITIONS := \
     boot \
@@ -55,6 +53,8 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Device Trees
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
+TARGET_NEEDS_DTBOIMAGE := true
 
 # Display
 TARGET_SCREEN_DENSITY := 320
@@ -81,31 +81,30 @@ BOARD_BOOTCONFIG := \
     androidboot.load_modules_parallel=true \
 	androidboot.vendor.qspa=true
 
-# Kernel (prebuilt)
-PREBUILT_PATH := device/xiaomi/flame-kernel
-TARGET_KERNEL_VERSION := 6.6
-BOARD_PREBUILT_DTBIMAGE_DIR := $(PREBUILT_PATH)/images/dtbs/
-BOARD_PREBUILT_DTBOIMAGE := $(PREBUILT_PATH)/images/dtbo.img
-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm4450
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
-    vendor/parrot_perf.config \
-    vendor/flame_GKI.config
+    vendor/parrot_perf.config
+
+TARGET_KERNEL_ADDITIONAL_FLAGS += \
+    CONFIG_XIAOMI_DEVICE_DTBS=y \
+    CONFIG_FLAME_DTB=y \
+    TARGET_PRODUCT=flame
 
 # Kernel modules
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(DEVICE_PATH)/vendor_dlkm.modules.blocklist
-
-BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/system_dlkm.modules.load))
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/vendor_dlkm.modules.load))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load $(DEVICE_PATH)/recovery.modules.load))
-
+BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load.system_dlkm))
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(TARGET_KERNEL_SOURCE)/modules.vendor_blocklist.msm.parrot
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load.vendorboot))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules/modules.load.recovery))
 BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
+TARGET_AUTO_COLLECT_KERNEL_MODULE_DEPS := true
 SYSTEM_KERNEL_MODULES := $(BOARD_SYSTEM_KERNEL_MODULES_LOAD)
 
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm4450-modules
 TARGET_KERNEL_EXT_MODULES := \
+    xiaomi \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/msm_ext_display \
     qcom/opensource/mm-drivers/sync_fence \
