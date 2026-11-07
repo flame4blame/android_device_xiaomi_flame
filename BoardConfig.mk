@@ -103,6 +103,7 @@ SYSTEM_KERNEL_MODULES := $(BOARD_SYSTEM_KERNEL_MODULES_LOAD)
 
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm4450-modules
 TARGET_KERNEL_EXT_MODULES := \
+    xiaomi \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/msm_ext_display \
     qcom/opensource/mm-drivers/sync_fence \

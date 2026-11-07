@@ -63,7 +63,7 @@ cpu_hotplug.ko
 thermal_pause.ko
 sdhci-msm.ko
 cqhci.ko
-ufs_qcom.ko
+ufs-qcom.ko
 ufshcd-crypto-qti.ko
 qcom-scm.ko
 qcom-ipcc.ko
@@ -105,6 +105,7 @@ bam_dma.ko
 msm_gpi.ko
 qcom_cpuss_sleep_stats.ko
 pdr_interface.ko
+qcom_pdr_msg.ko
 qmi_helpers.ko
 heap_mem_ext_v01.ko
 msm_memshare.ko
@@ -177,7 +178,7 @@ qpnp-power-on.ko
 i2c-msm-geni.ko
 qcom-pon.ko
 reboot-mode.ko
-qti_battery_charger_main.ko
+qti_battery_charger.ko
 schgm-flash.ko
 qcom-spmi-adc-tm5.ko
 qcom-spmi-temp-alarm.ko
