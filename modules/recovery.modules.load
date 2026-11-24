@@ -219,11 +219,6 @@ governor_gpubw_mon.ko
 qcom-spmi-adc5.ko
 qcom-vadc-common.ko
 qti-glink-adc.ko
-block2mtd.ko
-mtd.ko
-mtd_blkdevs.ko
-mtdblock.ko
-mtdoops.ko
 slimbus.ko
 slim-qcom-ngd-ctrl.ko
 coresight.ko
